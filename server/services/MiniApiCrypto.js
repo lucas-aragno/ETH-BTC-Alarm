@@ -1,4 +1,4 @@
-const API_URL = 'https://min-api.cryptocompare.com/data/price'
+const API_URL = "https://min-api.cryptocompare.com/data/price"
 
 const apiURLFor = ({cryptoType}) => `${API_URL}?fsym=${cryptoType}&tsyms=USD`
 
