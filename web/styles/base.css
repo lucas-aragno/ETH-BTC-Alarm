@@ -1,0 +1,5 @@
+@import './overrides.css';
+
+body {
+  background-color: red;
+}
