@@ -3,6 +3,8 @@ const axios = require('axios')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
+require('dotenv').config()
+
 const { logInfo } = require('./config/logger')
 const { pricePointsDB } = require('./config/couchdb')
 const PricePointCouchDBRepository = require('./concepts/pricePoint/repository/CouchDB')
@@ -20,7 +22,7 @@ let cryptoServiceWorker = new MiniApiCryptoWorker({
 
 const app = express()
 
-//app.use(cors())
+app.use(cors())
 app.use(bodyParser.json())
 app.use('/api', require('./routes'))
 

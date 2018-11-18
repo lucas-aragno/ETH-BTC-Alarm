@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "chart.js": "^2.7.3",
     "dotenv": "^6.1.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
