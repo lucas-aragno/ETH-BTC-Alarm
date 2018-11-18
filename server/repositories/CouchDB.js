@@ -13,11 +13,10 @@ class CouchDB {
 
   getLastEntries() {
     return new Promise((resolve, reject) => {
-      let query = {
-        limit: 4,
-        descending: true
-      }
-      this._database.find(query).then(doc => {
+      this._database.list({
+        include_docs: true,
+        limit: 4
+      }).then(doc => {
         resolve(doc)
       }).catch((error) => reject(error))
     })

@@ -1,4 +1,4 @@
-const router = require('express').Router
+const router = require('express').Router()
 const getLastEntries = require('./operations/getLastEntries')
 const PricePointRepository = require('./repository/CouchDB')
 

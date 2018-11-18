@@ -1,4 +1,4 @@
-const getLastEntries = ({ repository }) => {
+const getLastEntries = async ({ repository }) => {
   let entries = await repository.getLastEntries()
   return entries
 }

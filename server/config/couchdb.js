@@ -3,8 +3,6 @@ const { collections } = require('../config/database')
 
 const pricePointsDB = nano.db.use(collections.pricePoints)
 
-console.log('pricePointDB is ', pricePointsDB)
-
 module.exports = {
   pricePointsDB
 }

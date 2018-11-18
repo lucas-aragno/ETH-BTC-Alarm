@@ -20,7 +20,7 @@ let cryptoServiceWorker = new MiniApiCryptoWorker({
 
 const app = express()
 
-app.use(cors())
+//app.use(cors())
 app.use(bodyParser.json())
 app.use('/api', require('./routes'))
 

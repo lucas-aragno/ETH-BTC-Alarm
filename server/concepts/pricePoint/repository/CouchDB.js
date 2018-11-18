@@ -1,9 +1,9 @@
 const CouchDBBaseRepository = require('../../../repositories/CouchDB')
-const { collections } = require('../../../config/database')
+const { pricePointsDB } = require('../../../config/couchdb')
 
-class PricePointCouchDBRepository {
+class PricePointCouchDBRepository extends CouchDBBaseRepository {
   constructor () {
-    super({database: collections.pricePoints})
+    super({database: pricePointsDB})
   }
 }
 
