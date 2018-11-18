@@ -22,6 +22,7 @@ const app = express()
 
 app.use(cors())
 app.use(bodyParser.json())
+app.use('/api', require('./routes'))
 
 app.listen(process.env.API_PORT || 3000, () => {
   logInfo({ message: 'Running in port 3000' })

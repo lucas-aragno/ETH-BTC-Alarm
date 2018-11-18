@@ -1,4 +1,6 @@
 const { logInfo, logError } = require('../config/logger')
+const getFromService = require('../concepts/pricePoint/operations/getFromService')
+const store = require('../concepts/pricePoint/operations/store')
 
 class MiniApiCryptoWorker {
   constructor ({ cryptoService, repository, minutes }) {
@@ -11,10 +13,10 @@ class MiniApiCryptoWorker {
     setInterval(async () => {
       logInfo({ message: 'Performing request' })
       try {
-        let ethValue = await this._cryptoService.getInfoForCurrency({ cryptoType: 'ETH' }) 
-        let btcValue = await this._cryptoService.getInfoForCurrency({ cryptoType: 'BTC' })
+        let ethValue = await getFromService({ cryptoType: 'ETH', serviceCall: this._cryptoService.getInfoForCurrency })
+        let btcValue = await getFromService({ cryptoType: 'BTC', serviceCall: this._cryptoService.getInfoForCurrency })
         let timestamp = Math.round(+new Date()/1000);
-        let stored = await this._repository.insert({object: {eth: ethValue.data, btc: btcValue.data}, key: timestamp.toString()})
+        let stored = await store({ ethValue, btcValue, repository: this._repository, timestamp })
         logInfo({ message: `Stored ${stored} succesfully`})
       } catch (error) {
         logError({message: error})

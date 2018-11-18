@@ -3,7 +3,7 @@ class InMemory {
     this._pricePoints = []
   }
 
-  add ({ pricepoint }) {
+  insert ({ pricepoint }) {
     this._pricePoints.push(pricepoint)
   }
 
