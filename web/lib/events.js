@@ -1,4 +1,4 @@
-let chartLoaded = new Event('chartLoaded')
+let chartLoaded = ({data}) => new CustomEvent('chartLoaded', {'detail': data})
 
 export {
   chartLoaded
